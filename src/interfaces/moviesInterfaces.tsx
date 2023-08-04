@@ -84,3 +84,132 @@ export interface SpokenLanguage {
   iso_639_1: string;
   name: string;
 }
+
+export interface Credits {
+  cast: any[];
+  data: Data;
+  status: number;
+  headers: {[key: string]: string};
+  config: Config;
+  request: Request;
+}
+
+export interface Config {
+  transitional: Transitional;
+  adapter: string[];
+  transformRequest: null[];
+  transformResponse: null[];
+  timeout: number;
+  xsrfCookieName: string;
+  xsrfHeaderName: string;
+  maxContentLength: number;
+  maxBodyLength: number;
+  env: Env;
+  headers: Headers;
+  baseURL: string;
+  method: string;
+  url: string;
+}
+
+export interface Env {}
+
+export interface Headers {
+  Accept: string;
+  Authorization: string;
+}
+
+export interface Transitional {
+  silentJSONParsing: boolean;
+  forcedJSONParsing: boolean;
+  clarifyTimeoutError: boolean;
+}
+
+export interface Data {
+  id: number;
+  cast: Cast[];
+  crew: Cast[];
+}
+
+export interface Cast {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: Department;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: null | string;
+  cast_id?: number;
+  character?: string;
+  credit_id: string;
+  order?: number;
+  department?: Department;
+  job?: string;
+}
+
+export enum Department {
+  Acting = 'Acting',
+  Art = 'Art',
+  Crew = 'Crew',
+  Directing = 'Directing',
+  Editing = 'Editing',
+  Production = 'Production',
+  Sound = 'Sound',
+  VisualEffects = 'Visual Effects',
+  Writing = 'Writing',
+}
+
+export interface Request {
+  UNSENT: number;
+  OPENED: number;
+  HEADERS_RECEIVED: number;
+  LOADING: number;
+  DONE: number;
+  readyState: number;
+  status: number;
+  timeout: number;
+  withCredentials: boolean;
+  upload: Env;
+  _aborted: boolean;
+  _hasError: boolean;
+  _method: string;
+  _perfKey: string;
+  _response: string;
+  _url: string;
+  _timedOut: boolean;
+  _trackingName: string;
+  _incrementalEvents: boolean;
+  _performanceLogger: PerformanceLogger;
+  responseHeaders: {[key: string]: string};
+  _requestId: null;
+  _headers: HeadersClass;
+  _responseType: string;
+  _sent: boolean;
+  _lowerCaseResponseHeaders: {[key: string]: string};
+  _subscriptions: any[];
+  responseURL: string;
+}
+
+export interface HeadersClass {
+  accept: string;
+  authorization: string;
+}
+
+export interface PerformanceLogger {
+  _timespans: {[key: string]: Timespan};
+  _extras: Env;
+  _points: Points;
+  _pointExtras: Env;
+  _closed: boolean;
+}
+
+export interface Points {
+  initializeCore_start: number;
+  initializeCore_end: number;
+}
+
+export interface Timespan {
+  startTime: number;
+  endTime: number;
+  totalTime: number;
+}
