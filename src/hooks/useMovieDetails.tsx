@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
 import {movieDB} from '../api/movieDB';
-import {Credits, MovieFull} from '../interfaces/moviesInterfaces';
+import {Cast, Credits, MovieFull} from '../interfaces/moviesInterfaces';
 
 interface MovieDetails {
-  cast: Credits[];
+  cast: Cast[];
   isLoading: boolean;
   movieFull?: MovieFull;
 }
