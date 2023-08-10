@@ -14,6 +14,7 @@ import MoviePoster from '../components/MoviePoster';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Carousel from 'react-native-reanimated-carousel';
 import HorizontalSlider from '../components/HorizontalSlider';
+import GradientBackground from '../components/GradientBackground';
 
 const Home = () => {
   const {top} = useSafeAreaInsets();
@@ -27,26 +28,28 @@ const Home = () => {
     );
   }
   return (
-    <ScrollView>
-      <View
-        style={{
-          marginTop: top + 20,
-        }}>
-        <Carousel
-          loop
-          width={width}
-          height={width}
-          autoPlay={true}
-          data={nowPlaying}
-          mode="parallax"
-          scrollAnimationDuration={2000}
-          renderItem={({item}) => <MoviePoster movie={item} />}
-        />
-        <HorizontalSlider title="Popular" movies={popular} />
-        <HorizontalSlider title="Top Rated" movies={topRated} />
-        <HorizontalSlider title="Upcoming" movies={upcoming} />
-      </View>
-    </ScrollView>
+    <GradientBackground>
+      <ScrollView>
+        <View
+          style={{
+            marginTop: top + 20,
+          }}>
+          <Carousel
+            loop
+            width={width}
+            height={width}
+            autoPlay={true}
+            data={nowPlaying}
+            mode="parallax"
+            scrollAnimationDuration={2000}
+            renderItem={({item}) => <MoviePoster movie={item} />}
+          />
+          <HorizontalSlider title="Popular" movies={popular} />
+          <HorizontalSlider title="Top Rated" movies={topRated} />
+          <HorizontalSlider title="Upcoming" movies={upcoming} />
+        </View>
+      </ScrollView>
+    </GradientBackground>
   );
 };
 
