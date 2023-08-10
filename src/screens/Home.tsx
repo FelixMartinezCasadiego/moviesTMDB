@@ -20,6 +20,7 @@ const Home = () => {
   const {top} = useSafeAreaInsets();
   const {nowPlaying, isLoading, popular, topRated, upcoming} = useMovies();
   const width = Dimensions.get('window').width;
+
   if (isLoading) {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -27,6 +28,11 @@ const Home = () => {
       </View>
     );
   }
+  const getPosterColors = (index: number) => {
+    const movie = nowPlaying[index];
+    const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    console.log(uri);
+  };
   return (
     <GradientBackground>
       <ScrollView>
@@ -43,6 +49,7 @@ const Home = () => {
             mode="parallax"
             scrollAnimationDuration={2000}
             renderItem={({item}) => <MoviePoster movie={item} />}
+            onSnapToItem={index => getPosterColors(index)}
           />
           <HorizontalSlider title="Popular" movies={popular} />
           <HorizontalSlider title="Top Rated" movies={topRated} />
