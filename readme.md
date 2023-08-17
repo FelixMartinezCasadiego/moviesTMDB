@@ -1,4 +1,4 @@
-# Calculator App
+# Movie App
 
 This repository is about a movie application, where you can read information about the movie such as actors, budget, and rating.
 
