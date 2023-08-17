@@ -376,6 +376,8 @@ PODS:
     - React-Core
   - RNGestureHandler (2.12.0):
     - React-Core
+  - RNImageColors (1.5.2):
+    - React-Core
   - RNReanimated (3.4.1):
     - DoubleConversion
     - FBLazyVector
@@ -478,6 +480,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNImageColors (from `../node_modules/react-native-image-colors`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -576,6 +579,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-masked-view/masked-view"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNImageColors:
+    :path: "../node_modules/react-native-image-colors"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -636,6 +641,7 @@ SPEC CHECKSUMS:
   ReactCommon: a29dac86d7219579db079cef8f380ebffe1ba545
   RNCMaskedView: 949696f25ec596bfc697fc88e6f95cf0c79669b6
   RNGestureHandler: dec4645026e7401a0899f2846d864403478ff6a5
+  RNImageColors: 9ac05083b52d5c350e6972650ae3ba0e556466c1
   RNReanimated: 2a5df61eb047e5ffbbfc7862b242384f86eb2569
   RNScreens: 50ffe2fa2342eabb2d0afbe19f7c1af286bc7fb3
   RNVectorIcons: 8b5bb0fa61d54cd2020af4f24a51841ce365c7e9

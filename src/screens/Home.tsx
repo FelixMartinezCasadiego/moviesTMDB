@@ -1,25 +1,31 @@
 import {
   View,
-  Text,
-  Button,
   ActivityIndicator,
   Dimensions,
   StyleSheet,
-  FlatList,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {useMovies} from '../hooks/useMovies';
 import MoviePoster from '../components/MoviePoster';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Carousel from 'react-native-reanimated-carousel';
 import HorizontalSlider from '../components/HorizontalSlider';
 import GradientBackground from '../components/GradientBackground';
+import {getColors} from '../helpers/getColors';
+import {GradientContext} from '../context/GradientContext';
 
 const Home = () => {
+  const {setMainColors} = useContext(GradientContext);
   const {top} = useSafeAreaInsets();
   const {nowPlaying, isLoading, popular, topRated, upcoming} = useMovies();
   const width = Dimensions.get('window').width;
+
+  useEffect(() => {
+    if (nowPlaying.length > 0) {
+      getPosterColors(0);
+    }
+  }, [nowPlaying]);
 
   if (isLoading) {
     return (
@@ -28,10 +34,11 @@ const Home = () => {
       </View>
     );
   }
-  const getPosterColors = (index: number) => {
+  const getPosterColors = async (index: number) => {
     const movie = nowPlaying[index];
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    console.log(uri);
+    const [primary = 'green', secondary = 'orange'] = await getColors(uri);
+    setMainColors({primary, secondary});
   };
   return (
     <GradientBackground>

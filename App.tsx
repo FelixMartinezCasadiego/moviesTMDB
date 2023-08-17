@@ -1,13 +1,19 @@
 import 'react-native-gesture-handler';
-import {View, Text, SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {Navigation} from './src/navigation/Navigation';
+import {GradientProvider} from './src/context/GradientContext';
+
+const AppState = ({children}: any) => {
+  return <GradientProvider>{children}</GradientProvider>;
+};
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Navigation />
+      <AppState>
+        <Navigation />
+      </AppState>
     </NavigationContainer>
   );
 };
